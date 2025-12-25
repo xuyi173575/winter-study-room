@@ -1,0 +1,198 @@
+/* stylelint-disable */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Crimson+Pro:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 冬日书房设计系统 - 温暖手绘插画风格 */
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+    
+    /* 背景色：米白色到奶油色渐变 */
+    --background: 30 35% 92%; /* #F5EBE0 米白色 */
+    --background-cream: 35 30% 88%; /* #E8DCC8 奶油色 */
+    --foreground: 25 30% 20%; /* 深棕色文字 */
+    
+    /* 卡片和弹窗 */
+    --card: 30 40% 95%;
+    --card-foreground: 25 30% 20%;
+    --popover: 30 40% 96%;
+    --popover-foreground: 25 30% 20%;
+    
+    /* 主色：棕色系（木质感） */
+    --primary: 25 25% 35%; /* #6B5548 */
+    --primary-foreground: 30 35% 92%;
+    
+    /* 次要色：深棕色 */
+    --secondary: 25 30% 22%; /* #4A3428 */
+    --secondary-foreground: 30 35% 92%;
+    
+    /* 强调色：草莓红 */
+    --accent: 0 60% 51%; /* #C93D3D */
+    --accent-foreground: 0 0% 100%;
+    
+    /* 火焰色：琥珀橙 */
+    --flame: 20 75% 56%; /* #E07B39 */
+    --flame-foreground: 25 30% 20%;
+    
+    /* 金黄色 */
+    --gold: 45 100% 50%; /* #FFD700 */
+    
+    /* 冬日蓝（窗外天空） */
+    --sky: 200 50% 82%; /* #B8D4E8 */
+    --sky-light: 200 45% 88%; /* #D4E4F0 */
+    
+    /* 中性色 */
+    --muted: 30 20% 85%;
+    --muted-foreground: 25 15% 45%;
+    
+    /* 边框和输入框 */
+    --border: 30 25% 80%;
+    --input: 30 25% 85%;
+    --ring: 25 25% 35%;
+    
+    /* 音效控制颜色 */
+    --sound-fire: 20 75% 56%; /* 篝火 #E07B39 */
+    --sound-rain: 210 50% 60%; /* 雨声 #5B9BD5 */
+    --sound-book: 35 45% 65%; /* 翻书 #D4A574 */
+    --sound-noise: 130 20% 70%; /* 白噪音 #A8C4A4 */
+    
+    --destructive: 0 60% 51%;
+    --destructive-foreground: 0 0% 100%;
+  }
+
+  .dark {
+    /* 暗色模式保持温暖感 */
+    --background: 25 30% 15%;
+    --background-cream: 25 25% 18%;
+    --foreground: 30 35% 92%;
+    
+    --card: 25 30% 18%;
+    --card-foreground: 30 35% 92%;
+    --popover: 25 30% 18%;
+    --popover-foreground: 30 35% 92%;
+    
+    --primary: 30 35% 92%;
+    --primary-foreground: 25 30% 20%;
+    
+    --secondary: 25 20% 25%;
+    --secondary-foreground: 30 35% 92%;
+    
+    --accent: 0 60% 51%;
+    --accent-foreground: 0 0% 100%;
+    
+    --muted: 25 20% 25%;
+    --muted-foreground: 30 20% 65%;
+    
+    --border: 25 20% 30%;
+    --input: 25 20% 25%;
+    --ring: 30 35% 92%;
+    
+    --destructive: 0 60% 51%;
+    --destructive-foreground: 0 0% 100%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Crimson Pro', serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', serif;
+  }
+}
+
+/* 自定义动画 */
+@layer utilities {
+  @keyframes snowfall {
+    0% {
+      transform: translateY(-10px) translateX(0);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh) translateX(20px);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes flame {
+    0%, 100% {
+      transform: scaleY(1) scaleX(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scaleY(1.1) scaleX(0.95);
+      opacity: 0.9;
+    }
+  }
+  
+  @keyframes steam {
+    0% {
+      transform: translateY(0) scale(1);
+      opacity: 0.6;
+    }
+    100% {
+      transform: translateY(-30px) scale(1.5);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes crab-walk {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(100px);
+    }
+  }
+  
+  @keyframes ignite {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.2);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  .animate-snowfall {
+    animation: snowfall linear infinite;
+  }
+  
+  .animate-flame {
+    animation: flame 1.5s ease-in-out infinite;
+  }
+  
+  .animate-steam {
+    animation: steam 3s ease-out infinite;
+  }
+  
+  .animate-crab-walk {
+    animation: crab-walk 4s ease-in-out;
+  }
+  
+  .animate-ignite {
+    animation: ignite 3s ease-out forwards;
+  }
+}
